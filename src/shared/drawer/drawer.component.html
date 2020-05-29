@@ -20,4 +20,12 @@
         <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf2bb;"></label>
         <Label row="0" col="1" class="sidedrawer-list-item-text" text="Contact Us"></Label>
     </GridLayout>
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" [nsRouterLink]="['/favorites']" clearHistory="true">
+        <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf004;"></label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text" text="My Favorites"></Label>
+    </GridLayout>
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" [nsRouterLink]="['/reservation']" clearHistory="true">
+        <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf0f5;"></label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text" text="Reserve Table"></Label>
+    </GridLayout>
 </StackLayout>
