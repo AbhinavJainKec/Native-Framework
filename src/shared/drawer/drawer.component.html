@@ -4,16 +4,20 @@
 </GridLayout>
     
 <StackLayout class="sidedrawer-content" orientation="vertical">
-    <GridLayout class="sidedrawer-list-item" rows="*" columns="*" orientation="horizontal" [nsRouterLink]="['/home']" clearHistory="true">
-        <Label row="0" col="0" class="sidedrawer-list-item-text" text="Home"></Label>
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" [nsRouterLink]="['/home']" clearHistory="true">
+        <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf015;"></label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text" text="Home"></Label>
     </GridLayout>
-    <GridLayout class="sidedrawer-list-item" rows="*" columns="*" orientation="horizontal" [nsRouterLink]="['/about']" clearHistory="true">
-        <Label row="0" col="0" class="sidedrawer-list-item-text" text="About Us"></Label>
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" [nsRouterLink]="['/about']" clearHistory="true">
+        <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf05a;"></label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text" text="About Us"></Label>
     </GridLayout>
-    <GridLayout class="sidedrawer-list-item" rows="*" columns="*" orientation="horizontal" [nsRouterLink]="['/menu']" clearHistory="true">
-        <Label row="0" col="0" class="sidedrawer-list-item-text" text="Menu"></Label>
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" [nsRouterLink]="['/menu']" clearHistory="true">
+        <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf03a;"></label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text" text="Menu"></Label>
     </GridLayout>
-    <GridLayout class="sidedrawer-list-item" rows="*" columns="*" orientation="horizontal" [nsRouterLink]="['/contact']" clearHistory="true">
-        <Label row="0" col="0" class="sidedrawer-list-item-text" text="Contact Us"></Label>
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" [nsRouterLink]="['/contact']" clearHistory="true">
+        <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf2bb;"></label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text" text="Contact Us"></Label>
     </GridLayout>
 </StackLayout>
