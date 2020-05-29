@@ -6,9 +6,11 @@ import { AppComponent } from "./app.component";
 
 import { HttpClientModule } from '@angular/common/http';
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 
 import { MenuComponent } from "../menu/menu.component";
 import { DishdetailComponent } from '../dishdetail/dishdetail.component';
+import { DrawerComponent } from "../shared/drawer/drawer.component";
 
 import { DishService } from '../services/dish.service';
 import { ProcessHTTPMsgService } from '../services/process-httpmsg-service';
@@ -29,12 +31,14 @@ import { baseURL } from '../shared/baseurl';
         NativeScriptModule,
         NativeScriptHttpClientModule,
         AppRoutingModule,
+        NativeScriptUISideDrawerModule,
         HttpClientModule
     ],
     declarations: [
         AppComponent,
         MenuComponent,
-        DishdetailComponent
+        DishdetailComponent,
+        DrawerComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},
