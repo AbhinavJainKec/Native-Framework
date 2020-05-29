@@ -13,7 +13,7 @@
                     <Label col="0" text="&#xf015;" class="sidedrawer-list-item-text fa"></Label>
                     <Label col="1" text="Home" class="sidedrawer-list-item-text"></Label>
                 </GridLayout>
-                <GridLayout columns="50, auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/aboutus')" (tap)="onNavItemTap('/aboutus')">
+                <GridLayout columns="50, auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/about')" (tap)="onNavItemTap('/about')">
                     <Label col="0" text="&#xf05a;" class="sidedrawer-list-item-text fa"></Label>
                     <Label col="1" text="About Us" class="sidedrawer-list-item-text"></Label>
                 </GridLayout>
@@ -21,9 +21,13 @@
                     <Label col="0" text="&#xf03a;" class="sidedrawer-list-item-text fa"></Label>
                     <Label col="1" text="Menu" class="sidedrawer-list-item-text"></Label>
                 </GridLayout>
-                <GridLayout columns="50, auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/contactus')" (tap)="onNavItemTap('/contactus')">
+                <GridLayout columns="50, auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/contact')" (tap)="onNavItemTap('/contact')">
                     <Label col="0" text="&#xf2bb;" class="sidedrawer-list-item-text fa"></Label>
                     <Label col="1" text="Contact Us" class="sidedrawer-list-item-text"></Label>
+                </GridLayout>
+                <GridLayout columns="50, auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/favorites')" (tap)="onNavItemTap('/favorites')">
+                    <Label col="0" text="&#xf004;" class="sidedrawer-list-item-text fa"></Label>
+                    <Label col="1" text="My Favorites" class="sidedrawer-list-item-text"></Label>
                 </GridLayout>
             </StackLayout>
         </ScrollView>

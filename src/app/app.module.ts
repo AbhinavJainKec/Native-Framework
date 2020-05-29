@@ -7,6 +7,7 @@ import { AppComponent } from "./app.component";
 import { HttpClientModule } from '@angular/common/http';
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
 import { MenuComponent } from "../menu/menu.component";
 import { HomeComponent } from "../home/home.component";
@@ -14,6 +15,7 @@ import { AboutComponent } from "../about/about.component";
 import { ContactComponent } from "../contact/contact.component";
 import { DishdetailComponent } from "../dishdetail/dishdetail.component";
 import { DrawerComponent } from "../shared/drawer/drawer.component";
+import { FavoritesComponent } from "../favorites/favorites.component";
 
 import { DishService } from "../services/dish.service";
 import { PromotionService } from "../services/promotion.service";
@@ -38,6 +40,7 @@ import { baseURL } from "../shared/baseurl";
         NativeScriptHttpClientModule,
         AppRoutingModule,
         NativeScriptUISideDrawerModule,
+        NativeScriptUIListViewModule,
         HttpClientModule
     ],
     declarations: [
@@ -47,7 +50,8 @@ import { baseURL } from "../shared/baseurl";
         DrawerComponent,
         HomeComponent,
         AboutComponent,
-        ContactComponent
+        ContactComponent,
+        FavoritesComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},
