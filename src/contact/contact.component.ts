@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject, ChangeDetectorRef } from "@angular/core";
 import {DrawerPage} from '../shared/drawer/drawer.page';
+import * as app from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 @Component({
   selector: 'app-contact',
@@ -9,13 +11,18 @@ import {DrawerPage} from '../shared/drawer/drawer.page';
 })
 export class ContactComponent extends DrawerPage implements OnInit {
     
-    constructor(
-        private changeDetectorRef: ChangeDetectorRef
-        ) {
-          super(changeDetectorRef);
-       }
-  
-    ngOnInit() {
-    }
+  constructor(
+      private changeDetectorRef: ChangeDetectorRef
+      ) {
+        super(changeDetectorRef);
+      }
+
+  ngOnInit() {
+  }
+
+  onDrawerButtonTap(): void {
+    const sideDrawer = <RadSideDrawer>app.getRootView();
+    sideDrawer.showDrawer();
+  }
   
 }

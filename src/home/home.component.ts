@@ -10,6 +10,8 @@ import { Page } from "tns-core-modules/ui/page";
 import { View } from "tns-core-modules/ui/core/view";
 import { SwipeGestureEventData, SwipeDirection } from "tns-core-modules/ui/gestures";
 import * as enums from "tns-core-modules/ui/enums";
+import * as app from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 @Component({
   selector: 'app-home',
@@ -211,6 +213,11 @@ export class HomeComponent extends DrawerPage implements OnInit {
         });
       }
     }
+  }
+
+  onDrawerButtonTap(): void {
+    const sideDrawer = <RadSideDrawer>app.getRootView();
+    sideDrawer.showDrawer();
   }
 
 }

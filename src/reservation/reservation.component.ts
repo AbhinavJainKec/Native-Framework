@@ -4,6 +4,8 @@ import { Switch } from "tns-core-modules/ui/switch";
 import { Validators, FormBuilder, FormGroup} from "@angular/forms";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { ReservationModalComponent } from "../reservationmodal/reservationmodal.component";
+import * as app from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 @Component({
     selector: 'app-reservation',
@@ -76,5 +78,10 @@ export class ReservationComponent implements OnInit {
                 }
             });
 
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

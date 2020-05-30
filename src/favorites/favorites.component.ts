@@ -7,6 +7,8 @@ import { ObservableArray } from "tns-core-modules/data/observable-array";
 import { View } from "tns-core-modules/ui/core/view";
 import { confirm } from "tns-core-modules/ui/dialogs";
 import { Toasty, ToastPosition, ToastDuration } from "nativescript-toasty";
+import * as app from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 @Component({
     selector: 'app-favorites',
@@ -102,4 +104,9 @@ export class FavoritesComponent implements OnInit {
         this.deleteFavorite(args.object.bindingContext.id);
         this.listViewComponent.listView.notifySwipeToExecuteFinished();
     }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
+      }
 }
