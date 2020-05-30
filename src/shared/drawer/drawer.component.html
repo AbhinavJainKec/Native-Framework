@@ -3,7 +3,11 @@
     <Label row="0" col="1" text="Ristorante Confusion" class="sidedrawer-header-image-brand" textWrap="true"></Label>
 </GridLayout>
     
-<StackLayout class="sidedrawer-content" orientation="vertical">
+<StackLayout class="sidedrawer-content" orientation="vertical"> 
+    <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" (tap)="displayLoginDialog()">
+        <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf090;"></label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text" text="Login"></Label>
+    </GridLayout>
     <GridLayout class="sidedrawer-list-item" rows="*" columns="50, *" orientation="horizontal" [nsRouterLink]="['/home']" clearHistory="true">
         <label row="0" col="0" class="sidedrawer-list-item-text fa" text="&#xf015;"></label>
         <Label row="0" col="1" class="sidedrawer-list-item-text" text="Home"></Label>
