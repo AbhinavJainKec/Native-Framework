@@ -19,6 +19,8 @@ import { View } from "tns-core-modules/ui/core/view";
 import { SwipeGestureEventData, SwipeDirection } from "tns-core-modules/ui/gestures";
 import { Color } from "tns-core-modules/color";
 import * as enums from "tns-core-modules/ui/enums";
+import * as SocialShare from "nativescript-social-share";
+import { ImageSource, fromUrl } from "tns-core-modules/image-source";
 
 @Component({
   selector: 'app-dishdetail',
@@ -89,48 +91,51 @@ export class DishdetailComponent implements OnInit {
         title: "Actions",
         message: "Select an Action",
         cancelButtonText: "Cancel",
-        actions: ["Add to Favorites", "Add Comment"]
+        actions: ["Add to Favorites", "Add Comment", "Social Sharing"]
     };
 
     action(options).then((result) => {
-        console.log(result);
-        switch(result) {
-            case "Add to Favorites":
-                this.addToFavorites();
-                break;
-            case "Add Comment":
-                this.showCommentModalForm();
-                break;
-        }
+      console.log(result);
+      switch(result) {
+        case "Add to Favorites":
+          this.addToFavorites();
+          break;
+        case "Add Comment":
+          this.showCommentModalForm();
+          break;
+        case "Social Sharing":
+          this.socialShare();
+          break;
+      }
     });
   }
 
   showCommentModalForm(): void {
     let options: ModalDialogOptions = {
-        viewContainerRef: this.vcRef,
-        fullscreen: false
+      viewContainerRef: this.vcRef,
+      fullscreen: false
     };
     this.modalService.showModal(CommentComponent, options)
-          .then((result: any) => {
-              const d = new Date();
-              const n = d.toISOString();
-              this.comment = {
-                  author: result.author,
-                  comment: result.comment,
-                  rating: result.rating,
-                  date: n
-              };
-                let total = 0;
-                /*this.http.post(baseURL + 'dishes/' + this.dish.id + '/comments.json', this.comment)
-                .subscribe(res => {
-                  console.log(res);
-                })*/
-                this.dish.comments.push(this.comment);
-                this.numcomments = this.dish.comments.length;
-                this.dish.comments.forEach(comment => total += comment.rating);
-                this.avgstars = (total/this.numcomments).toFixed(2);
-              
-          });
+      .then((result: any) => {
+        const d = new Date();
+        const n = d.toISOString();
+        this.comment = {
+          author: result.author,
+          comment: result.comment,
+          rating: result.rating,
+          date: n
+        };
+        let total = 0;
+        /*this.http.post(baseURL + 'dishes/' + this.dish.id + '/comments.json', this.comment)
+        .subscribe(res => {
+          console.log(res);
+        })*/
+        this.dish.comments.push(this.comment);
+        this.numcomments = this.dish.comments.length;
+        this.dish.comments.forEach(comment => total += comment.rating);
+        this.avgstars = (total/this.numcomments).toFixed(2);
+          
+      });
   }
 
   onSwipe(args: SwipeGestureEventData) {
@@ -173,20 +178,20 @@ export class DishdetailComponent implements OnInit {
     }
     let definitions = new Array<AnimationDefinition>();
     let a1: AnimationDefinition = {
-        target: this.cardImage,
-        scale: { x: 1, y: 0 },
-        translate: { x: 0, y: -200 },
-        opacity: 0,
-        duration: 500,
-        curve: enums.AnimationCurve.easeIn
+      target: this.cardImage,
+      scale: { x: 1, y: 0 },
+      translate: { x: 0, y: -200 },
+      opacity: 0,
+      duration: 500,
+      curve: enums.AnimationCurve.easeIn
     };
     definitions.push(a1);
 
     let a2: AnimationDefinition = {
-        target: this.cardLayout,
-        backgroundColor: new Color("#ffc107"),
-        duration: 500,
-        curve: enums.AnimationCurve.easeIn
+      target: this.cardLayout,
+      backgroundColor: new Color("#ffc107"),
+      duration: 500,
+      curve: enums.AnimationCurve.easeIn
     };
     definitions.push(a2);
 
@@ -210,20 +215,20 @@ export class DishdetailComponent implements OnInit {
     this.showComments = false;
     let definitions = new Array<AnimationDefinition>();
     let a1: AnimationDefinition = {
-        target: this.cardImage,
-        scale: { x: 1, y: 1 },
-        translate: { x: 0, y: 0 },
-        opacity: 1,
-        duration: 500,
-        curve: enums.AnimationCurve.easeIn
+      target: this.cardImage,
+      scale: { x: 1, y: 1 },
+      translate: { x: 0, y: 0 },
+      opacity: 1,
+      duration: 500,
+      curve: enums.AnimationCurve.easeIn
     };
     definitions.push(a1);
 
     let a2: AnimationDefinition = {
-        target: this.cardLayout,
-        backgroundColor: new Color("#ffffff"),
-        duration: 500,
-        curve: enums.AnimationCurve.easeIn
+      target: this.cardLayout,
+      backgroundColor: new Color("#ffffff"),
+      duration: 500,
+      curve: enums.AnimationCurve.easeIn
     };
     definitions.push(a2);
 
@@ -234,6 +239,18 @@ export class DishdetailComponent implements OnInit {
     .catch((e) => {
         console.log(e.message);
     });
+  }
+
+  socialShare() {
+    let image: ImageSource;
+
+    fromUrl(this.baseURL + this.dish.image)
+     .then((img: ImageSource) => {
+       image = img; 
+        SocialShare.shareImage(image, "How would you like to share this image?")
+      })
+     .catch(()=> { console.log('Error loading image'); });
+
   }
 
 }
