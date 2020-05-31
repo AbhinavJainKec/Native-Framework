@@ -3,6 +3,7 @@ import {DrawerPage} from '../shared/drawer/drawer.page';
 import * as app from "tns-core-modules/application";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as Email from "nativescript-email";
+import * as Phone from 'nativescript-phone';
 
 @Component({
   selector: 'app-contact',
@@ -19,6 +20,13 @@ export class ContactComponent extends DrawerPage implements OnInit {
       }
 
   ngOnInit() {
+  }
+
+  callRestaurant() {
+    const phoneNumber = '01-2345-6789';
+    Phone.requestCallPermission('You should accept the permission to be able to make a direct phone call.')
+      .then(() => Phone.dial(phoneNumber, false))
+      .catch(() => Phone.dial(phoneNumber, true));
   }
 
   onDrawerButtonTap(): void {
