@@ -30,6 +30,7 @@ import { FavoriteService } from "../services/favorite.service";
 import { ProcessHTTPMsgService } from "../services/process-httpmsg-service";
 import { CouchbaseService } from "../services/couchbase.service";
 import { ReservationService } from "../services/reservation.service";
+import { PlatformService } from "../services/platform.service";
 
 import { baseURL } from "../shared/baseurl";
 
@@ -79,7 +80,8 @@ import { baseURL } from "../shared/baseurl";
         FavoriteService,
         ProcessHTTPMsgService,
         CouchbaseService,
-        ReservationService
+        ReservationService,
+        PlatformService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
