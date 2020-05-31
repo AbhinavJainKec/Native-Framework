@@ -9,7 +9,7 @@
 
         <ScrollView row="1">
             <StackLayout class="sidedrawer-content">
-                <GridLayout columns="50, auto" class="sidedrawer-list-item" (tap)="displayLoginDialog()">
+                <GridLayout columns="50, auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/auth')" (tap)="onNavItemTap('/auth')">
                     <Label col="0" text="&#xf090;" class="sidedrawer-list-item-text fa"></Label>
                     <Label col="1" text="Login" class="sidedrawer-list-item-text"></Label>
                 </GridLayout>
